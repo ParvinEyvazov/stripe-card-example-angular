@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "stripe-test"
+    }
+  },
+  "defaultProject": "stripe-test",
+  "cli": {
+    "analytics": false
+  }
 }

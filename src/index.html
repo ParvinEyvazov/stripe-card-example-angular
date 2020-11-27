@@ -1,13 +1,18 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>StripeTest</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root></app-root>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>StripeTest</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  </head>
+  <body>
+    <app-root></app-root>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script type="text/javascript">
+      const stripe = Stripe("pk_test_51HX02AHC6Fal1mUZIgjD7Fv1MofVw3RNrc2Xo8wDQhipBAEnQQyZlhaKreuvN9HYn5ZXzIIXIHFo4tEA7zfKC6Yk00K81mW6Pb");
+      const elements = stripe.elements();
+    </script>
+  </body>
 </html>
