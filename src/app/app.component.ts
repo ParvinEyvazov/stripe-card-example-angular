@@ -5,6 +5,8 @@ import {
   Inject,
   ViewChild,
 } from '@angular/core';
+import * as Bucket from '@spica-devkit/bucket';
+import { error } from 'protractor';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +22,9 @@ export class AppComponent {
   cardHandler = this.onChange.bind(this);
   cardError: string;
 
-  constructor(private cd: ChangeDetectorRef) {}
+  constructor(private cd: ChangeDetectorRef) {
+    console.log('a');
+  }
 
   // ngOnDestroy() {
   //   if (this.card) {
@@ -35,6 +39,26 @@ export class AppComponent {
   }
 
   initiateCardElement() {
+    console.log('aa');
+    Bucket.initialize({
+      apikey: '57xb19kj1rzlat',
+      publicUrl: 'https://master.spicaengine.com/api',
+    });
+
+    //console.log(Bucket);
+    Bucket.data.getAll('5fe1c20c19f862002c7b0697').then(data => console.log(data))
+    Bucket.data.realtime.getAll("5fe1c20c19f862002c7b0697").subscribe(
+      (data) => {
+        console.log('data: ', data);
+      },
+      (error) => {
+        console.log('err: ', error);
+      },
+      () => {
+        console.log('completed: ');
+      }
+    );
+
     // Giving a base style here, but most of the style is in scss file
     const cardStyle = {
       base: {
@@ -81,17 +105,14 @@ export class AppComponent {
       type: 'card',
       card: this.card,
       billing_details: {
-        email: 'test@gmail.com',
+        email: 'test2@gmail.com',
       },
     });
 
     console.log(result);
   }
 
-  onSuccess(token) {
-    console.log('aaa');
-    console.log(token);
-  }
+  onSuccess(token) {}
 
   onError(error) {
     console.log(error);
