@@ -21,6 +21,8 @@ export class AppComponent {
   cardHandler = this.onChange.bind(this);
   cardError: string;
 
+  test_data;
+
   constructor(private cd: ChangeDetectorRef) {
     console.log('a');
   }
@@ -62,6 +64,7 @@ export class AppComponent {
       .subscribe(
         (data) => {
           console.log('data: ', data);
+          this.test_data = data;
         },
         (error) => {
           console.log('err: ', error);

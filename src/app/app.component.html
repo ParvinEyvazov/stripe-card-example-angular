@@ -1,14 +1,21 @@
-
-<form style="text-align: center;" (ngSubmit)="createStripeToken()" class="checkout">
-  <label style="font-size: 30px;" for="card-info">Card Info</label>
-<div id="form-field">
-      <div style="font-size: 30px;" id="card-info" #cardInfo></div>
-      <button style="font-size: 20px;" id="submit-button" type="submit">
-          Pay ${{_totalAmount}}
-      </button>
-      <mat-error id="card-errors" role="alert" *ngIf="cardError">
-          <mat-icon style="color: #f44336">cancel</mat-icon>
-          &nbsp;{{ cardError }}
-      </mat-error>
+<form
+  style="text-align: center"
+  (ngSubmit)="createStripeToken()"
+  class="checkout"
+>
+  <label style="font-size: 30px" for="card-info">Card Info</label>
+  <div id="form-field">
+    <div style="font-size: 30px" id="card-info" #cardInfo></div>
+    <button style="font-size: 20px" id="submit-button" type="submit">
+      Pay ${{ _totalAmount }}
+    </button>
+    <mat-error id="card-errors" role="alert" *ngIf="cardError">
+      <mat-icon style="color: #f44336">cancel</mat-icon>
+      &nbsp;{{ cardError }}
+    </mat-error>
   </div>
 </form>
+<div *ngIf="test_data">
+  {{ test_data[0].rick }}
+  <p>sdsd</p>
+</div>
