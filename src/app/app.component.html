@@ -1,4 +1,4 @@
-<form
+<!-- <form
   style="text-align: center"
   (ngSubmit)="createStripeToken()"
   class="checkout"
@@ -16,6 +16,15 @@
   </div>
 </form>
 <div *ngIf="test_data">
-  {{ test_data[0].rick }}
+  <div [innerHTML]="test_data[0].rick"></div>
   <p>sdsd</p>
-</div>
+</div> -->
+
+<input type="file" (change)="onImageChange($event)" accept="image/*" />
+
+<img src="{{ image_url_real }}" alt="" />
+<img src="{{ image_url_modified }}" alt="" />
+
+<button (click)="sub()">sub</button>
+
+<button (click)="ubsub()">unsib</button>
